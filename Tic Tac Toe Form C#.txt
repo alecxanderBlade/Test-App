@@ -1,0 +1,552 @@
+using System;
+using System.Windows.Forms;
+
+namespace TestApp
+{
+    public partial class TicTacToeForm : Form
+    {
+        Random rnd = new Random();
+        public static TicTacToeForm gameForm;
+        public string x = "X", o = "O", name, counterIncremented, counterDecremented, Score_String, debugger;
+        public string s1, s2, s3, s4, s5, s6, s7, s8, s9;
+        int score, indexAi;
+
+        public TicTacToeForm(string text)
+        {
+            gameForm = this;
+            InitializeComponent();
+            name = text;
+            playerName.Text = (name + " :");
+        }
+        private void button10_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainMenuForm form = new MainMenuForm();
+            form.Show();
+        }
+        public void playAgainBtn_Click(object sender, EventArgs e)
+        {
+            button1.Text = "";
+            button2.Text = "";
+            button3.Text = "";
+            button4.Text = "";
+            button5.Text = "";
+            button6.Text = "";
+            button7.Text = "";
+            button8.Text = "";
+            button9.Text = "";
+
+            playAgainBtn.Visible = false;
+            ResultDisplayBtn.Visible = false;
+        }
+        public void ResultDisplayBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void QuitBtn_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
+        public void button2_Click(object sender, EventArgs e)
+        {
+            if (button2.Text.Equals(""))
+            {
+                button2.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        public void button3_Click(object sender, EventArgs e)
+        {
+            if (button3.Text.Equals(""))
+            {
+                button3.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        public void button4_Click(object sender, EventArgs e)
+        {
+            if (button4.Text.Equals(""))
+            {
+                button4.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        public void button5_Click(object sender, EventArgs e)
+        {
+            if (button5.Text.Equals(""))
+            {
+                button5.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        public void button6_Click(object sender, EventArgs e)
+        {
+            if (button6.Text.Equals(""))
+            {
+                button6.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        public void button7_Click(object sender, EventArgs e)
+        {
+            if (button7.Text.Equals(""))
+            {
+                button7.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        public void button8_Click(object sender, EventArgs e)
+        {
+            if (button8.Text.Equals(""))
+            {
+                button8.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        public void button9_Click(object sender, EventArgs e)
+        {
+            if (button9.Text.Equals(""))
+            {
+                button9.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        public void button1_Click(object sender, EventArgs e)
+        {
+            if (button1.Text.Equals(""))
+            {
+                button1.Text = "O";
+            }
+            Ai();
+            Score_handler();
+        }
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+        }
+        public void Ai()
+        {
+            indexAi = rnd.Next(1, 10);
+
+            switch (indexAi)
+            {
+                case 1:
+                    if (button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    else if (button2.Text.Length != 0 && button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    else if (button3.Text.Length != 0 && button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    else if (button4.Text.Length != 0 && button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    else if (button5.Text.Length != 0 && button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    else if (button6.Text.Length != 0 && button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    else if (button7.Text.Length != 0 && button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    else if (button8.Text.Length != 0 && button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+                case 2:
+                    if (button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    else if (button2.Text.Length != 0 && button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    else if (button3.Text.Length != 0 && button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    else if (button4.Text.Length != 0 && button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    else if (button5.Text.Length != 0 && button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    else if (button6.Text.Length != 0 && button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    else if (button7.Text.Length != 0 && button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    else if (button8.Text.Length != 0 && button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+                case 3:
+                    if (button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    else if (button3.Text.Length != 0 && button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    else if (button4.Text.Length != 0 && button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    else if (button5.Text.Length != 0 && button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    else if (button6.Text.Length != 0 && button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    else if (button7.Text.Length != 0 && button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    else if (button8.Text.Length != 0 && button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    else if (button9.Text.Length != 0 && button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+                case 4:
+                    if (button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    else if (button4.Text.Length != 0 && button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    else if (button5.Text.Length != 0 && button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    else if (button6.Text.Length != 0 && button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    else if (button7.Text.Length != 0 && button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    else if (button8.Text.Length != 0 && button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    else if (button9.Text.Length != 0 && button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    else if (button2.Text.Length != 0 && button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+                case 5:
+                    if (button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    else if (button5.Text.Length != 0 && button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    else if (button6.Text.Length != 0 && button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    else if (button7.Text.Length != 0 && button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    else if (button8.Text.Length != 0 && button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    else if (button9.Text.Length != 0 && button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    else if (button2.Text.Length != 0 && button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    else if (button3.Text.Length != 0 && button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+                case 6:
+                    if (button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    else if (button6.Text.Length != 0 && button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    else if (button7.Text.Length != 0 && button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    else if (button8.Text.Length != 0 && button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    else if (button9.Text.Length != 0 && button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    else if (button2.Text.Length != 0 && button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    else if (button3.Text.Length != 0 && button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    else if (button4.Text.Length != 0 && button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+                case 7:
+                    if (button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    else if (button7.Text.Length != 0 && button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    else if (button8.Text.Length != 0 && button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    else if (button9.Text.Length != 0 && button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    else if (button2.Text.Length != 0 && button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    else if (button3.Text.Length != 0 && button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    else if (button4.Text.Length != 0 && button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    else if (button5.Text.Length != 0 && button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+                case 8:
+                    if (button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    else if (button8.Text.Length != 0 && button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    else if (button9.Text.Length != 0 && button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    else if (button2.Text.Length != 0 && button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    else if (button3.Text.Length != 0 && button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    else if (button4.Text.Length != 0 && button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    else if (button5.Text.Length != 0 && button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    else if (button6.Text.Length != 0 && button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+                case 9:
+                    if (button9.Text.Length == 0)
+                    {
+                        button9.Text = "X";
+                    }
+                    else if (button9.Text.Length != 0 && button1.Text.Length == 0)
+                    {
+                        button1.Text = "X";
+                    }
+                    else if (button1.Text.Length != 0 && button2.Text.Length == 0)
+                    {
+                        button2.Text = "X";
+                    }
+                    else if (button2.Text.Length != 0 && button3.Text.Length == 0)
+                    {
+                        button3.Text = "X";
+                    }
+                    else if (button3.Text.Length != 0 && button4.Text.Length == 0)
+                    {
+                        button4.Text = "X";
+                    }
+                    else if (button4.Text.Length != 0 && button5.Text.Length == 0)
+                    {
+                        button5.Text = "X";
+                    }
+                    else if (button5.Text.Length != 0 && button6.Text.Length == 0)
+                    {
+                        button6.Text = "X";
+                    }
+                    else if (button6.Text.Length != 0 && button7.Text.Length == 0)
+                    {
+                        button7.Text = "X";
+                    }
+                    else if (button7.Text.Length != 0 && button8.Text.Length == 0)
+                    {
+                        button8.Text = "X";
+                    }
+                    debugger = indexAi.ToString();
+                    debug.Text = debugger;
+                    break;
+            }
+        }
+        public void Score_handler()
+        {
+            s1 = button1.Text;
+            s2 = button2.Text;
+            s3 = button3.Text;
+            s4 = button4.Text;
+            s5 = button5.Text;
+            s6 = button6.Text;
+            s7 = button7.Text;
+            s8 = button8.Text;
+            s9 = button9.Text;
+
+            if (s1.Equals("O") && s2.Equals("O") && s3.Equals("O") || s1.Equals("O") && s5.Equals("O") && s9.Equals("O") ||
+                s1.Equals("O") && s4.Equals("O") && s7.Equals("O") || s4.Equals("O") && s5.Equals("O") && s6.Equals("O")
+                || s7.Equals("O") && s8.Equals("O") && s9.Equals("O") || s2.Equals("O") && s5.Equals("O") && s8.Equals("O")
+                 || s3.Equals("O") && s6.Equals("O") && s9.Equals("O") || s3.Equals("O") && s5.Equals("O") && s7.Equals("O"))
+            {
+                score = Int32.Parse(playerScore.Text);
+                score++;
+                Score_String = score.ToString();
+                playerScore.Text = Score_String;
+
+                playAgainBtn.Visible = true;
+                ResultDisplayBtn.Visible = true;
+                ResultDisplayBtn.Text = "YOU WIN!";
+            }
+            else if (!s1.Equals("") && !s2.Equals("") && !s3.Equals("") && !s4.Equals("") &&
+                !s5.Equals("") && !s6.Equals("") && !s7.Equals("") &&
+                !s8.Equals("") && !s9.Equals(""))
+            {
+                playAgainBtn.Visible = true;
+                ResultDisplayBtn.Visible = true;
+                ResultDisplayBtn.Text = "IT'S A DRAW";
+            }
+            else if (s1.Equals("X") && s2.Equals("X") && s3.Equals("X") || s1.Equals("X") && s5.Equals("X") && s9.Equals("X") ||
+               s1.Equals("X") && s4.Equals("X") && s7.Equals("X") || s4.Equals("X") && s5.Equals("X") && s6.Equals("X")
+               || s7.Equals("X") && s8.Equals("X") && s9.Equals("X") || s2.Equals("X") && s5.Equals("X") && s8.Equals("X")
+                || s3.Equals("X") && s6.Equals("X") && s9.Equals("X") || s3.Equals("X") && s5.Equals("X") && s7.Equals("X"))
+            {
+                score = Int32.Parse(AiScore.Text);
+                score++;
+                Score_String = score.ToString();
+                AiScore.Text = Score_String;
+
+                playAgainBtn.Visible = true;
+                ResultDisplayBtn.Visible = true;
+                ResultDisplayBtn.Text = "YOU LOSE!";
+            }
+        }
+    }
+}

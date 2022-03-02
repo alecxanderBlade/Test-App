@@ -1,0 +1,18 @@
+using System;
+using System.Windows.Forms;
+
+namespace TestApp
+{
+    public partial class noNameAlert : Form
+    {
+        public noNameAlert()
+        {
+            InitializeComponent();
+        }
+
+        private void enterNameMessage_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

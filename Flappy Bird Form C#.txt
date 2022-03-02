@@ -1,0 +1,89 @@
+using System;
+using System.Windows.Forms;
+
+namespace TestApp
+{
+    public partial class FlappyBirdForm : Form
+    {
+        Random rnd = new Random();
+        int  gravity = 5, score, pipeSpawnPosition, pipeSpeed = 5;
+        string ScoreText;
+
+        public FlappyBirdForm()
+        {
+            InitializeComponent();
+            playAgainBtn.Visible = false;
+            tryTicTacToeBtn.Visible = false;
+            Quit.Visible = false;
+        }
+        private void gameTimerEvent(object sender, EventArgs e)
+        {
+            pipeSpawnPosition = rnd.Next(-200, 0);
+            bird.Top += gravity;
+            pipeDown.Left -= pipeSpeed;
+            pipeUp.Left -= pipeSpeed;
+
+            if (pipeDown.Left < -50)
+            {
+                score = Int32.Parse(scoreText.Text);
+                score++;
+                score--;
+                ScoreText = score.ToString();
+                scoreText.Text = ScoreText;
+                pipeDown.Left = 600;
+                score++;
+                pipeDown.Top = pipeSpawnPosition - -450;
+            }
+            if (pipeUp.Left < -50)
+            {
+                score = Int32.Parse(scoreText.Text);
+                score++;
+                ScoreText = score.ToString();
+                scoreText.Text = ScoreText;
+                pipeUp.Left = 600;
+                score++;
+                pipeUp.Top = pipeSpawnPosition;
+            }
+            if (bird.Bounds.IntersectsWith(pipeDown.Bounds) || bird.Bounds.IntersectsWith(pipeUp.Bounds)
+                || bird.Bounds.IntersectsWith(bottomCollision.Bounds) || bird.Bounds.IntersectsWith(topCollision.Bounds))
+            {
+                gameTimer.Stop();
+                playAgainBtn.Visible = true;
+                tryTicTacToeBtn.Visible = true;
+                Quit.Visible = true;
+            }         
+        }
+        private void Quit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MainMenuForm form = new MainMenuForm();
+            form.Show();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FlappyBirdForm form = new FlappyBirdForm();
+            form.Show();
+        }
+        private void gameKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                gravity = -6;
+            }
+            if (score == 10)
+            {
+                pipeSpeed = pipeSpeed + 1;
+            }
+        }
+        private void gameKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                gravity = 10;
+            }
+        }
+    }
+}

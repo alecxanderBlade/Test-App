@@ -1,0 +1,28 @@
+using System;
+using System.Windows.Forms;
+
+namespace TestApp
+{
+    public partial class NameForm : Form
+    {
+        public NameForm()
+        {
+            InitializeComponent();
+        }
+
+        private void nameSubmitBtn_Click(object sender, EventArgs e)
+        {
+            if (textName.TextLength != 0)
+            {
+                this.Close();
+                TicTacToeForm form = new TicTacToeForm(textName.Text);
+                form.Show();
+            }
+            else if (textName.TextLength == 0)
+            {
+                noNameAlert noName = new noNameAlert();
+                noName.ShowDialog();
+            }
+        }
+    }
+}
